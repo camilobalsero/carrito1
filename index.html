@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>SHOPPING CART</title>
+  </head>
+
+  <body>
+    <div class="overlay"></div>
+    <header>
+      <button class="button" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+      </svg></button>
+
+      <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Categorias</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#" onclick="filterByCategory('Todo')">Todo</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="filterByCategory('computers')">Computadores</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="filterByCategory('cel')">Celulares</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="filterByCategory('gaming')">Gaming</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="filterByCategory('components')">Componentes</a>
+            </li>
+        </ul>
+    </div>
+    
+      <h2 class="title">TECHNOLOGY CENTER</h2>
+      <form class="d-flex" role="search" id="searchForm">
+        <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+      </form>
+    </header>
+
+    
+    <div class="container-products">
+      <div class="modal-modify">
+          <button id="close-modal2">X</button>
+          <p>Sku</p>
+          <input type="text" id="new-sku2" placeholder="...">
+          <p>Producto</p>
+          <input type="text" id="new-product2" placeholder="...">
+          <p>Precio</p>
+          <input type="text" id="new-price2" placeholder="...">
+          <p>Descripción</p>
+          <input type="text" id="new-description2" placeholder="...">
+          <p>Categoria</p>
+          <input type="text" id="new-category2" placeholder="...">
+          <p>Inventario</p>
+          <input type="text" id="new-stock2" placeholder="...">
+          <p>Imagen</p>
+          <input type="file" id="new-image2">
+          <button id="call-product">Llamar Producto</button>
+          <button id="update-product">Actualizar Producto</button>
+        </div>
+     </div>
+
+
+    
+    <div class="container-products">
+      <div class="modal">
+          <button id="close-modal">X</button>
+          <p>Producto</p>
+          <input type="text" id="new-product" placeholder="...">
+          <p>Precio</p>
+          <input type="text" id="new-price" placeholder="...">
+          <p>Descripción</p>
+          <input type="text" id="new-description" placeholder="...">
+          <p>Categoria</p>
+          <input type="text" id="new-category" placeholder="...">
+          <p>Inventario</p>
+          <input type="text" id="new-stock" placeholder="...">
+          <p>Imagen</p>
+          <input type="file" id="new-image">
+          <button id="btn-new-create">CCrear un nuevo Producto</button>
+      </div>
+    </div>
+    
+    
+    <div class="order">
+      <button class="btn" type="submit" id="btn-create">Crear un nuevo Producto</button>
+      <button class="btn" type="submit" id="btn-modify">Modificar un Producto</button>
+      <div class="buttons1">
+        <button class="ascdes" onclick="sortProducts('asc')">Ordenar por Precio Ascendente</button>
+        <button class="ascdes" onclick="sortProducts('desc')">Ordenar por Precio Descendente</button>
+      </div>
+    </div>
+
+    <div id="cart" class="cart">
+      <div class="cart-items" id="cart-items">
+      </div>
+
+    <div class="cart-summary">
+      <h2>Resumen del Carrito</h2>
+      <p>Total: <span id="cart-total">$0</span></p>
+      <button id="empty-cart">Vaciar Carrito</button>
+    </div>
+    
+    
+    <section class="cards" id="container">
+      <div>
+        
+      </div>    
+    </section>
+
+  
+
+      <script src="./js/order.js"></script>
+      <script src="./js/cart.js"></script>
+      <script src="./js/app.js"></script>
+      <script src="./js/search.js"></script>
+      <script src="./js/filterCategory.js"></script>
+      <script src="./js/modal.js"></script>
+  </body>
+</html> 
